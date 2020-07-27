@@ -1,72 +1,35 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
+import data from '../data.json'
+import {HScreenItem} from '../component'
 
-HomeScreen = () => {
-  DATA = [
-    {
-      id: 1,
-      question: 'turkiyenin baskenti neresidir?',
-      cevap: [
-        {Text: 'Ankara', correct: true},
-        {Text: 'Adana', correct: false},
-        {Text: 'Amasya', correct: false},
-        {Text: 'Artvin', correct: false},
-      ],
-    },
-    {
-      id: 2,
-      question: 'turkiyenin baskenti neresidir?',
-      cevap: [
-        {Text: 'Ankara', correct: true},
-        {Text: 'amasya', correct: false},
-        {Text: 'istanbul', correct: false},
-        {Text: 'antalya', correct: false},
-      ],
-    },
-    {
-      id: 3,
-      question: 'turkiyenin baskenti neresidir?',
-      cevap: [
-        {Text: 'Ankara', correct: true},
-        {Text: 'amasya', correct: false},
-        {Text: 'istanbul', correct: false},
-        {Text: 'antalya', correct: false},
-      ],
-    },
-  ];
+const HomeScreen = () => {
+  const [questions, setQuestions]=useState([data])
 
-  const queries = DATA.map(query => {
-      return query
-  })
-  const sorgular = queries.map(sorgu => {
-      return sorgu
-  })
-
-  useEffect(() => {
-    console.log(sorgular);
-  }, []);
-
-  clicked = correct => {};
+  const renderItem = item => {
+    return(
+      <View>
+        <HScreenItem itemData={item}/>
+      </View>
+    )
+  }
 
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.container}>
-        <View style={styles.row}>
-          {sorgular.map((item) => {
-            <>
-              <Text style={styles.textBaslik}>{item.question}</Text>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.yazi}>{item.cevap.Text}</Text>
-              </TouchableOpacity>
-            </>;
-          })}
+    <View>
+      <View >
+        <View >
+          <FlatList
+          data={questions}
+          keyExtractor = {(_,index)=>index.toString()}
+          renderItem={renderItem}
+          />
         </View>
       </View>
     </View>
   );
 }
 
-export default HomeScreen;
+export {HomeScreen};
 
 const styles = StyleSheet.create({
   container: {

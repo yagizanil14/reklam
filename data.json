@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "question": "turkiyenin baskenti neresidir?",
+        "cevap": [
+          {"Text": "Ankara", "correct": true},
+          {"Text": "Adana", "correct": false},
+          {"Text": "Amasya", "correct": false},
+          {"Text": "Artvin", "correct": false}
+        ]
+      },
+      {
+        "id": 2,
+        "question": "ankaranın baskenti neresidir?",
+        "cevap": [
+          {"Text": "Ankara", "correct": true},
+          {"Text": "Adana", "correct": false},
+          {"Text": "Amasya", "correct": false},
+          {"Text": "Artvin", "correct": false}
+        ]
+      },
+      {
+        "id": 3,
+        "question": "bolunun baskenti neresidir?",
+        "cevap": [
+          {"Text": "Ankara", "correct": true},
+          {"Text": "Adana", "correct": false},
+          {"Text": "Amasya", "correct": false},
+          {"Text": "Artvin", "correct": false}
+        ]
+      }
+]
+   

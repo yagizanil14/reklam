@@ -10,7 +10,7 @@ import SettingsScreen from './screens/SettingsScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
-function App() {
+const App=()=> {
   return (
     <NavigationContainer>
     <SafeAreaView style={{flex:1}}>
