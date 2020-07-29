@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Text, View, TouchableOpacity, Image } from 'react-native'
 import { QuestionButton } from '.'
+import Context from '../context/store';
 
 const HScreenItem = props => {
 
     const [ansIndex, setAnsIndex] = useState(0)
     const [dataLenght, setDataLenght] = useState([...props.itemData.item])
-    const [right, setRight] = useState(1)
     const [randomNumbers, setRandomNumbers] = useState([])
-    const [total, setTotal] = useState({trues:0, falses:0})
+    const {state, dispatch} = useContext(Context);
 
     useEffect(() => {
         getRandom()
@@ -37,43 +37,34 @@ const HScreenItem = props => {
 
     const setIndex = correct => {
         if (ansIndex < dataLenght.length - 1) {
-            if (right > 0) {
-                setRight(0)
-                if(correct !== true){
-                    const totals = {...total}
-                    totals.falses = totals.falses +1
-                    setTotal(totals)
-                    console.log(total)
-                }else{
-                    const totals = {...total}
-                    totals.trues = totals.trues + 1
-                    setTotal(totals)
-                    console.log(total)
-                }
+            if (state.right > 0) {
+                dispatch({type:"RİGHT_DOWN"})
+                elseİf(correct)
                 setTimeout(() => {
                     getRandom()
                     setAnsIndex(ansIndex + 1)
-                    setRight(1)
+                    dispatch({type:"RİGHT_PLUS"})
                 }, 2500)
             }
         } else {
-            if (right > 0) {
-                setRight(0)
-                if(correct !== true){
-                    const totals = {...total}
-                    totals.falses = totals.falses +1
-                    setTotal(totals)
-                    console.log(total)
-                }else{
-                    const totals = {...total}
-                    totals.trues = totals.trues + 1
-                    setTotal(totals)
-                    console.log(total)
-                }
+            if (state.right > 0) {
+                dispatch({type:"RİGHT_DOWN"})
+                elseİf(correct)
                 setTimeout(() => {
-                    props.prop.navigation.navigate("FinishScreen",{totalTrue:total})
+                    props.prop.navigation.navigate("FinishScreen")
+                    getRandom()
+                    setAnsIndex(0)
+                    dispatch({type:"RİGHT_PLUS"})
                 }, 2500)
             }
+        }
+    }
+
+    const elseİf = correct => {
+        if (correct !== true) {
+           dispatch({type:"TOTAL_FALSES"})
+        } else {
+            dispatch({type:"TOTAL_TRUES"})
         }
     }
 
@@ -91,17 +82,17 @@ const HScreenItem = props => {
     return (
         <View>
             <View style={{ flex: 1 }}>
+                {console.log(state)}
                 <View>
                     {props.itemData.item[ansIndex].question !== undefined ?
                         <Text>{props.itemData.item[ansIndex].question}</Text> :
-                        <Image style={{width:300, height: 150}} source={{ uri: props.itemData.item[ansIndex].imgQuestion }} />}
+                        <Image style={{ width: 300, height: 150 }} source={{ uri: props.itemData.item[ansIndex].imgQuestion }} />}
                 </View>
                 <View >
                     {randomNumbers.length > 0 ? randomNumbers.map((e, index) => {
                         return (
                             <View key={index}>
                                 <QuestionButton
-                                    setRig={right}
                                     setInd={setIndex}
                                     buttonData={
                                         props.itemData.item[ansIndex].cevap !== undefined ?

@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, TouchableOpacity, Text, Image } from 'react-native'
+import Context from '../context/store';
 
 const QuestionButton = props => {
+    const {state, dispatch} = useContext(Context);
     return (
         <View >
             <TouchableOpacity
                 style={
-                    props.setRig === 0 ?
+                    state.right === 0 ?
                         { backgroundColor: props.buttonData.correct === true ? "blue" : "red" }
                         : null
                 }

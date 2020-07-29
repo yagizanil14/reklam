@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import data from '../../data.json'
 import {HScreenItem} from '../component'
 
 const HomeScreen = props => {
-  const [questions, setQuestions]=useState([data])
+  const [questions, setQuestions]=useState([])
+
+  useEffect(()=>{
+    setQuestions([data])
+  },[])
 
   const renderItem = item => {
     return(

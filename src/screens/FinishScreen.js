@@ -1,13 +1,18 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { View,Text, TouchableOpacity } from 'react-native'
+import Context from '../context/store';
 
 const FinishScreen = props => {
-    const totalTrue = props.route.params.totalTrue
+    const {state, dispatch} = useContext(Context);
+    const goBack = () => {
+        dispatch({type:"TOTAL_RESET"})
+        props.navigation.navigate("HomeScreen")
+    }
     return(
         <View>
-            <Text>Toplam Doğru: {totalTrue.trues}</Text>
-            <Text>Toplam Yanlış: {totalTrue.falses}</Text>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate("HomeScreen")}}>
+            <Text>Toplam Doğru: {state.total.trues}</Text>
+            <Text>Toplam Yanlış: {state.total.falses}</Text>
+            <TouchableOpacity onPress={goBack}>
                 <Text>Geri</Text>
             </TouchableOpacity>
         </View>
