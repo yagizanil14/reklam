@@ -8,7 +8,7 @@ const HScreenItem = props => {
     const [ansIndex, setAnsIndex] = useState(0)
     const [dataLenght, setDataLenght] = useState([...props.itemData.item])
     const [randomNumbers, setRandomNumbers] = useState([])
-    const {state, dispatch} = useContext(Context);
+    const { state, dispatch } = useContext(Context);
 
     useEffect(() => {
         getRandom()
@@ -38,23 +38,23 @@ const HScreenItem = props => {
     const setIndex = correct => {
         if (ansIndex < dataLenght.length - 1) {
             if (state.right > 0) {
-                dispatch({type:"RİGHT_DOWN"})
+                dispatch({ type: "RİGHT_DOWN" })
                 elseİf(correct)
                 setTimeout(() => {
                     getRandom()
                     setAnsIndex(ansIndex + 1)
-                    dispatch({type:"RİGHT_PLUS"})
+                    dispatch({ type: "RİGHT_PLUS" })
                 }, 2500)
             }
         } else {
             if (state.right > 0) {
-                dispatch({type:"RİGHT_DOWN"})
+                dispatch({ type: "RİGHT_DOWN" })
                 elseİf(correct)
                 setTimeout(() => {
                     props.prop.navigation.navigate("FinishScreen")
                     getRandom()
                     setAnsIndex(0)
-                    dispatch({type:"RİGHT_PLUS"})
+                    dispatch({ type: "RİGHT_PLUS" })
                 }, 2500)
             }
         }
@@ -62,9 +62,9 @@ const HScreenItem = props => {
 
     const elseİf = correct => {
         if (correct !== true) {
-           dispatch({type:"TOTAL_FALSES"})
+            dispatch({ type: "TOTAL_FALSES" })
         } else {
-            dispatch({type:"TOTAL_TRUES"})
+            dispatch({ type: "TOTAL_TRUES" })
         }
     }
 
@@ -86,7 +86,16 @@ const HScreenItem = props => {
                 <View>
                     {props.itemData.item[ansIndex].question !== undefined ?
                         <Text>{props.itemData.item[ansIndex].question}</Text> :
-                        <Image style={{ width: 300, height: 150 }} source={{ uri: props.itemData.item[ansIndex].imgQuestion }} />}
+                        <View>
+                            {props.itemData.item[ansIndex].imgQuestionText !== undefined ?
+                                <View>
+                                    <Image style={{ width: 300, height: 150 }} source={{ uri: props.itemData.item[ansIndex].imgQuestion }} />
+                                    <Text>{props.itemData.item[ansIndex].imgQuestionText}</Text>
+                                </View>:
+                                <Image style={{ width: 300, height: 150 }} source={{ uri: props.itemData.item[ansIndex].imgQuestion }} />
+                            }
+                        </View>
+                    }
                 </View>
                 <View >
                     {randomNumbers.length > 0 ? randomNumbers.map((e, index) => {

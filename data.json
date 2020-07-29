@@ -52,6 +52,7 @@
       {
         "id": 6,
         "imgQuestion": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png",
+        "imgQuestionText":"kayserinin baskenti neresidir?",
         "cevap": [
             {"Text": "Ankara", "correct": true},
             {"Text": "Adana", "correct": false},
