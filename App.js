@@ -5,8 +5,8 @@ import {AdMobBanner} from 'react-native-admob';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 
-import HomeScreen from './screens/HomeScreen';
-import SettingsScreen from './screens/SettingsScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -22,10 +22,7 @@ const App=()=> {
         onAdFailedToLoad={error => console.error(error)}
       />
         </View>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
+        
       </SafeAreaView>      
       </NavigationContainer>
       

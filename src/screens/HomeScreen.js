@@ -1,22 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import data from '../data.json'
+import data from '../../data.json'
 import {HScreenItem} from '../component'
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   const [questions, setQuestions]=useState([data])
 
   const renderItem = item => {
     return(
       <View>
-        <HScreenItem itemData={item}/>
+        <HScreenItem prop={props} itemData={item}/>
       </View>
     )
   }
 
   return (
     <View>
-      <View >
         <View >
           <FlatList
           data={questions}
@@ -24,7 +23,6 @@ const HomeScreen = () => {
           renderItem={renderItem}
           />
         </View>
-      </View>
     </View>
   );
 }

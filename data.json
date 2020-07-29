@@ -28,6 +28,36 @@
           {"Text": "Amasya", "correct": false},
           {"Text": "Artvin", "correct": false}
         ]
+      },
+      {
+        "id": 4,
+        "imgQuestion": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png",
+        "imgCevap": [
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": true},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false}
+        ]
+      },
+      {
+        "id": 5,
+        "question": "kayserinin baskenti neresidir?",
+        "imgCevap": [
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": true},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false},
+          {"img": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png", "correct": false}
+        ]
+      },
+      {
+        "id": 6,
+        "imgQuestion": "https://www.61saat.com/images/haberler/2019/08/internet_uzerinden_sahibinden_araba_ilani_nasil_verilir_h666524_78224.png",
+        "cevap": [
+            {"Text": "Ankara", "correct": true},
+            {"Text": "Adana", "correct": false},
+            {"Text": "Amasya", "correct": false},
+            {"Text": "Artvin", "correct": false}
+          ]
       }
 ]
    
